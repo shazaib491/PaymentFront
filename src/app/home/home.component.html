@@ -1,0 +1,31 @@
+<ng-template #brand let-data let-n=name let-t=title let-d=disc>
+    <div class="row">
+        <div class="col-md-3 m-auto pt-5 ">
+            <div class="card border shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-center border border-bottom shadow">{{n}}</h5>
+                    <img src="https://picsum.photos/100" class="mx-auto shadow-lg d-block rounded-circle" alt="">
+                    <h5 class="text-center pt-2">{{t}}</h5>
+                    <p class="card-text text-center">{{d}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<!-- <ng-container *ngTemplateOutlet="brand,context:{name:'shazaib'}"></ng-container> -->
+<div class="container">
+    <input type="text" class="form-control w-50 mt-5 border border-danger" (keypress)="setText($event)">
+</div>
+<div class="container mt-3">
+    <input (input)="setValue($event)" min="10" max="110" type="range" name="" id="">
+</div>
+fontSize:-{{textSize}}
+<select (change)="setColor($event)">
+    <option value="text-primary">primary</option>
+    <option value="text-danger">Danger</option>
+    <option value="text-info">Info</option>
+    <option value="text-success">success</option>
+</select>
+<p class="container" [style.font-size.px]='textSize' [class]="textcls">{{text}}</p>
+<ng-container *ngTemplateOutlet="brand,context:{name:'shazaib',title:'student',disc:'lorem ipsumlorem ipsumlorem ipsum'}"></ng-container>
